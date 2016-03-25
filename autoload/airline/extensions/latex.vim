@@ -6,7 +6,7 @@ let s:spc = g:airline_symbols.space
 
 function! airline#extensions#latex#init(ext)
 
-  call airline#parts#define_raw('MainFile', '%{airline#extensions#latex#get_mainfile()}')
+  call airline#parts#define_raw('MainFile', '%{latex#get_mainfile()}')
 
   call a:ext.add_statusline_func('airline#extensions#latex#apply)
 
