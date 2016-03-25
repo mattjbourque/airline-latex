@@ -1,0 +1,15 @@
+" vim: et ts=2 sts=2 sw=2
+"
+function! airline#extensions#latex#init(ext)
+
+    call airline#parts#define_raw('MainFile', '%{airline#extensions#latex#get_mainfile()}')
+
+    call a:ext.add_statusline_func('airline#extensions#latex#apply)
+   
+endfunction
+
+function! airline#extensions#latex#apply(...)
+    if & filetype == "tex"
+
+	let w:airline_section_c = get(w:, 'airline_section_c', g:airline_section_c)
+	

@@ -1,0 +1,30 @@
+" vim: et ts=2 sts=2 sw=2
+
+" Due to some potential rendering issues, the use of the `space` variable is
+" recommended.
+let s:spc = g:airline_symbols.space
+
+function! airline#extensions#latex#init(ext)
+
+  call airline#parts#define_raw('MainFile', '%{airline#extensions#latex#get_mainfile()}')
+
+  call a:ext.add_statusline_func('airline#extensions#latex#apply)
+
+endfunction
+
+function! airline#extensions#latex#apply(...)
+  if & filetype == "tex"
+
+    let w:airline_section_c = get(w:, 'airline_section_c', g:airline_section_c)
+    let w:airline_section_c .= s:spc.g:airline_left_alt_sep.s:spc.'%{airline#extensions#latex#get_mainfile()}'
+  endif
+endfunction
+
+function! airline#extensions#latex#get_mainfile()
+
+  return Tex_GetMainFileName(':p:t')
+
+endfunction
+
+
+  
