@@ -16,6 +16,6 @@ function! airline#extensions#latex#apply(...)
   if &filetype == "tex"
 
     let w:airline_section_c = get(w:, 'airline_section_c', g:airline_section_c)
-    let w:airline_section_c .= s:spc.g:airline_left_alt_sep.s:spc.'%{latex#get_mainfile()}'
+    let w:airline_section_c .= s:spc.'('.'%{latex#get_mainfile()}'.')'
   endif
 endfunction
