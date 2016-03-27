@@ -6,3 +6,9 @@ function! latex#get_mainfile()
   return fnamemodify(Tex_GetMainFileName(),':t:r')
 
 endfunction
+
+function! latex#get_target()
+
+    return Tex_GetTarget()
+
+endfunction
